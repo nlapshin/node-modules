@@ -1,14 +1,12 @@
-const express = require('express')
-const app = express()
+const b = require('./b')
 
-app.listen(3000, () => {
-  console.log('Server started on 3000 port')
-})
+module.exports = {
+  aName: 'aName',
+  bName() {
+    console.log(b.bName) // { bName: 'bName' }
+  }
+}
 
-// Как ищутся пакеты
-// - ищет папку node_modules и, если есть, то оттуда забирает пакет
-// - спуск в родительскую директорию и поиск: node_modules и, если есть, то оттуда забирает пакет
-// /home/nik/.nvm/versions/node/v16.14.2/lib/node_modules - глобальные пакеты
 /*
 
 require('./test')
