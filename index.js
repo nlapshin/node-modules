@@ -1,115 +1,33 @@
-const express = require('express')
+// console.log(exports, require, module, __filename, __dirname)
+import express from 'express'
+
+console.log(process.argv)
+
+// https://www.npmjs.com/package/commander
+// @uirouter/core
+
+import testModule, { name, myFunction as myNewFunction } from './test.js'
+import * as test  from './test.js'
+
+
 const app = express()
 
-app.listen(3000, () => {
-  console.log('Server started on 3000 port')
-})
+console.log(cjs)
 
-// Как ищутся пакеты
-// - ищет папку node_modules и, если есть, то оттуда забирает пакет
-// - спуск в родительскую директорию и поиск: node_modules и, если есть, то оттуда забирает пакет
-// /home/nik/.nvm/versions/node/v16.14.2/lib/node_modules - глобальные пакеты
-/*
+// Node.JS. Паттерны проектирования. Mario Casciaro
 
-require('./test')
+app.listen(3000, () => console.log('3000 port'))
 
-// const testSlow = require('./test-slow')
-
-  // testSlow.init()
-{ foo: [Function (anonymous)], name: 'Wang' } // exports
-
-// module
-Module {
-  id: '/home/nik/projects/webinar/node-modules/test.js',
-  path: '/home/nik/projects/webinar/node-modules',
-  exports: { foo: [Function (anonymous)], name: 'Wang' },
-  filename: '/home/nik/projects/webinar/node-modules/test.js',
-  loaded: false,
-  children: [],
-  paths: [
-    '/home/nik/projects/webinar/node-modules/node_modules',
-    '/home/nik/projects/webinar/node_modules',
-    '/home/nik/projects/node_modules',
-    '/home/nik/node_modules',
-    '/home/node_modules',
-    '/node_modules'
-  ]
-}
-*/
-
-/*
-
-const myModule = require('./my-module')
-
-myModule.myFunction()
-
-const myModuleNew = require('./my-module')
-
-myModuleNew.myFunction = () => {
-  console.log('hello nik')
-}
-
-myModule.myFunction()
-
-// console.log(require.cache)
-
-
-const myModule = require('./my-module')
-
-myModule.name = 'new nik'
-
-myModule.myFunction()
-
-const myModule2 = require('./my-module')
-
-myModule2.myFunction = () => {
-  console.log('hello nik')
-}
-
-console.log(myModule2.name)
-myModule2.myFunction()
-
-*/
-
-// const myModule = require('./my-module')
-// const myModuleId = require.resolve('./my-module')
-
-// delete require.cache[myModuleId]
-
-// require('./my-module')
-
-// 1 шаг - это из ./my-module получить абсолютный путь
-// 2 шаг - а есть ли кэш?
-// 3 шаг - если нет кэша, то создать, иначе взять из кэша.
-
-// import - через require
-// export - через exports или module.exports
-
-
-// console.log(exports, require, module, __filename, __dirname)
-// require('./test-slow')
-
-
-// Если папка, то ишет index.js
-// Если файл, то ишет файлы с расширение .js, .json, .node
+// 1 способ: использовать *.mjs
+// 2 способ: в package.json прописать "type": "module",
 
 /*
 {
-    id: '/home/nik/projects/webinar/node-modules/my-module/index.js',
-    path: '/home/nik/projects/webinar/node-modules/my-module',
-    exports: { name: 'nik' },
-    filename: '/home/nik/projects/webinar/node-modules/my-module/index.js',
-    loaded: true,
-    children: [],
-    paths: [
-      '/home/nik/projects/webinar/node-modules/my-module/node_modules',
-      '/home/nik/projects/webinar/node-modules/node_modules',
-      '/home/nik/projects/webinar/node_modules',
-      '/home/nik/projects/node_modules',
-      '/home/nik/node_modules',
-      '/home/node_modules',
-      '/node_modules'
-    ]
-  }
+  default: { name: 'test', myFunction: [Function: myFunction] },
+  myFunction: [Function: myFunction],
+  name: 'test'
+}
 
 */
+//console.log(testModule, name, myNewFunction)
+// { name: 'test', myFunction: [Function: myFunction] } test [Function: myFunction]

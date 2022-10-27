@@ -1,6 +1,9 @@
-console.log('hello world')
+export const name = 'test'
+export const myFunction = () => {
+  console.log('hello world')
+}
 
-exports.foo = function(){};
-module.exports.name = "Wang";
-console.log(exports);
-console.log(module);
+export default {
+  name,
+  myFunction
+}
